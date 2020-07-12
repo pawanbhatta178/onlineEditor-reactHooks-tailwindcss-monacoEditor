@@ -9,23 +9,28 @@ function Compiler({ code, setIsCodeRunning, langType }) {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios.post(`http://localhost:9000`, { code, langType }).then(({ data }) => {
-      if (data.stderr) {
-        setError(data.stderr);
-      } else {
-        setResult(data.stdout);
-      }
-      setCompiling(false);
-    });
+    axios
+      .post(`https://mighty-lake-53096.herokuapp.com/`, {
+        code,
+        langType,
+      })
+      .then(({ data }) => {
+        if (data.stderr) {
+          setError(data.stderr);
+        } else {
+          setResult(data.stdout);
+        }
+        setCompiling(false);
+      });
   }, [code]);
 
   return (
     <div className="relative w-full p-2">
       <CloseIcon
-        className="absolute top-0 right-0"
+        className="absolute top-0 right-0 cursor-pointer"
         onClick={() => setIsCodeRunning(false)}
       />
-      <div className=" flex items-center justify-center h-full">
+      <div className="my-4 py-4 flex items-center justify-center h-full">
         {compiling ? <LoadingSpinner /> : result ? result : error}
       </div>
     </div>
