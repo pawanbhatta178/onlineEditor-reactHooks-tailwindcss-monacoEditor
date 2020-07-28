@@ -9614,6 +9614,38 @@ video {
   resize: both;
 }
 
+.hover\:resize-none:hover {
+  resize: none;
+}
+
+.hover\:resize-y:hover {
+  resize: vertical;
+}
+
+.hover\:resize-x:hover {
+  resize: horizontal;
+}
+
+.hover\:resize:hover {
+  resize: both;
+}
+
+.focus\:resize-none:focus {
+  resize: none;
+}
+
+.focus\:resize-y:focus {
+  resize: vertical;
+}
+
+.focus\:resize-x:focus {
+  resize: horizontal;
+}
+
+.focus\:resize:focus {
+  resize: both;
+}
+
 .shadow-xs {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
@@ -23330,22 +23362,6 @@ video {
 
   .sm\:left-auto {
     left: auto;
-  }
-
-  .sm\:resize-none {
-    resize: none;
-  }
-
-  .sm\:resize-y {
-    resize: vertical;
-  }
-
-  .sm\:resize-x {
-    resize: horizontal;
-  }
-
-  .sm\:resize {
-    resize: both;
   }
 
   .sm\:shadow-xs {
@@ -37067,22 +37083,6 @@ video {
     left: auto;
   }
 
-  .md\:resize-none {
-    resize: none;
-  }
-
-  .md\:resize-y {
-    resize: vertical;
-  }
-
-  .md\:resize-x {
-    resize: horizontal;
-  }
-
-  .md\:resize {
-    resize: both;
-  }
-
   .md\:shadow-xs {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -50802,22 +50802,6 @@ video {
     left: auto;
   }
 
-  .lg\:resize-none {
-    resize: none;
-  }
-
-  .lg\:resize-y {
-    resize: vertical;
-  }
-
-  .lg\:resize-x {
-    resize: horizontal;
-  }
-
-  .lg\:resize {
-    resize: both;
-  }
-
   .lg\:shadow-xs {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -64535,22 +64519,6 @@ video {
 
   .xl\:left-auto {
     left: auto;
-  }
-
-  .xl\:resize-none {
-    resize: none;
-  }
-
-  .xl\:resize-y {
-    resize: vertical;
-  }
-
-  .xl\:resize-x {
-    resize: horizontal;
-  }
-
-  .xl\:resize {
-    resize: both;
   }
 
   .xl\:shadow-xs {

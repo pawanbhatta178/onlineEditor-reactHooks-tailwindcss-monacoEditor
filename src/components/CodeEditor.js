@@ -1,20 +1,22 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import Editor from "@monaco-editor/react";
 import Compiler from "./Compiler";
 import DropdownMenu from "./DropdownMenu";
 import Theme from "./Theme";
+import UserContext from "../UserContext";
 
 const CodeEditor = () => {
+  const { question } = useContext(UserContext);
   const [isEditorReady, setIsEditorReady] = useState(false);
   const [isCodeRunning, setIsCodeRunning] = useState(false);
   const valueGetter = useRef();
-  const [code] = useState(`/*
+  const [code, setCode] = useState(`/*
   your code goes here...
   */ `);
   const [langType, setLangType] = useState("node");
   const [themeType, setThemeType] = useState("vs-light");
   const [compilerStyle, setCompilerStyle] = useState(
-    "mx-2 h-32 flex bg-white justify-center overflow-auto border rounded-lg"
+    " h-32 flex bg-white justify-center overflow-auto border rounded-lg"
   );
 
   const editorDidMount = (_valueGetter) => {
@@ -25,14 +27,18 @@ const CodeEditor = () => {
   useEffect(() => {
     if (themeType === "dark") {
       setCompilerStyle(
-        "mx-2 h-32 flex bg-gray-900 justify-center overflow-auto border rounded-lg text-gray-200"
+        " h-32 flex bg-gray-900 justify-center overflow-auto border rounded-lg text-gray-200"
       );
     } else {
       setCompilerStyle(
-        "mx-2 h-32 flex bg-white justify-center overflow-auto border rounded-lg"
+        " h-32 flex bg-gray-200 justify-center overflow-auto border rounded-lg"
       );
     }
   }, [themeType]);
+
+  useEffect(() => {
+    setCode(question?.startingCodeJS);
+  }, [question]);
 
   const handleLangChange = (event) => {
     setLangType(event.target.value);
@@ -63,7 +69,7 @@ const CodeEditor = () => {
   };
 
   return (
-    <div className="bg-gray-200 w-7/12 h-full pt-1 pb-4 px-2 border-r">
+    <div className="px-4 bg-gray-200 w-7/12 h-full pt-1 pb-4 border-r ">
       <div className="bg-gray-200 flex justify-between items-center text-blue-700">
         <Theme
           themeType={themeType}
@@ -72,9 +78,9 @@ const CodeEditor = () => {
         />
         <DropdownMenu langType={langType} handleChange={handleLangChange} />
       </div>
-      <div className="mx-2 mt-3 mb-2 border-10 rounded shadow-lg">
+      <div className=" mt-3 w-full mb-2 ">
         <Editor
-          height="65vh"
+          height="70vh"
           language={getLanguageTypeUtil(langType)}
           value={code}
           options={options}
