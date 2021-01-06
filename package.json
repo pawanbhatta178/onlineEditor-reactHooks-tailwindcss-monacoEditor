@@ -13,7 +13,7 @@
     "@uiw/react-monacoeditor": "^2.2.1",
     "ace-builds": "^1.4.11",
     "autoprefixer": "^9.8.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "date-fns": "^2.15.0",
     "graphql": "^15.3.0",
     "monaco-editor": "^0.20.0",
